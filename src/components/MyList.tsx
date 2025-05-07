@@ -7,19 +7,18 @@ export default function MyList() {
 
   return (
     <Box sx={{ p: 4, backgroundColor: "#121212", minHeight: "100vh" }}>
-      {/* Title */}
+     
       <Typography variant="h4" sx={{ mb: 4, fontWeight: "bold", color: "white" }}>
         🎞️ My Movie List
       </Typography>
 
-      {/* No Movies Message */}
       {state.length === 0 ? (
         <Typography variant="body1" sx={{ color: "gray", textAlign: "center" }}>
           No movies in your list.
         </Typography>
       ) : (
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center" }}>
-          {/* Render Movie Cards */}
+       
           {state.map((movie: any) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}

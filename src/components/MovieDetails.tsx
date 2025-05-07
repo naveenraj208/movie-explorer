@@ -33,10 +33,10 @@ export default function MovieDetails() {
             boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
             transition: "transform 0.3s ease",
           }}
-          className="hover:scale-105" // Tailwind CSS class for hover effect
+          className="hover:scale-105" 
         />
         <Box sx={{ flex: 1, color: "white" }}>
-          <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2 }}>
+        <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2 }}>
             {movie.title}
           </Typography>
           <Typography variant="body1" sx={{ mb: 3, color: "gray" }}>
@@ -46,7 +46,6 @@ export default function MovieDetails() {
             ⭐ {movie.vote_average} | 🎬 {movie.release_date}
           </Typography>
 
-          {/* Button to Add/Remove from My List */}
           <Button
             variant="contained"
             color={isInList ? "error" : "primary"}

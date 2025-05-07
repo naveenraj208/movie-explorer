@@ -33,12 +33,11 @@ export default function MovieCard({ movie }: { movie: any }) {
         image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
         sx={{
-          borderTopLeftRadius: 3, // Round top corners
-          borderTopRightRadius: 3, // Round top corners
+          borderTopLeftRadius: 3, 
+          borderTopRightRadius: 3, 
         }}
       />
 
-      {/* Movie Details */}
       <CardContent sx={{ flexGrow: 1, padding: "10px", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
         <Typography
           variant="subtitle1"

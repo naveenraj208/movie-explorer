@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
-import tmdb from "../api/tmdb";
-import MovieSection from "./MovieSection";
+'use client'
 
-// Categories for fetching movies
-const categories = [
-  { key: "now_playing", label: "Now Playing" },
-  { key: "popular", label: "Popular" },
-  { key: "top_rated", label: "Top Rated" },
-  { key: "upcoming", label: "Upcoming" },
-];
+import { useEffect, useState } from "react";
+import tmdb from "../api/tmdb";  
+import MovieSection from "./MovieSection";  
 
 export default function Home() {
   const [movies, setMovies] = useState<Record<string, any[]>>({});
+
+  const categories = [
+    { key: "now_playing", label: "Now Playing" },
+    { key: "popular", label: "Popular" },
+    { key: "top_rated", label: "Top Rated" },
+    { key: "upcoming", label: "Upcoming" },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,28 +25,28 @@ export default function Home() {
     };
 
     fetchData();
-  }, []);
+  }, []); 
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
-      
       <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-12 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-10 rounded-xl shadow-lg">
-          <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-red-600 to-yellow-500 tracking-tight leading-tight">
+       
+        <header className="text-center mb-16 bg-gradient-to-r from-pink-600 via-red-600 to-yellow-600 p-20 rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105">
+          <h1 className="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-700 via-red-700 to-yellow-700 tracking-tight leading-tight mb-6">
             Movie Showcase
           </h1>
-          <p className="text-xl text-gray-300 mt-4 max-w-3xl mx-auto">
-            Explore the latest movies across various categories. Find your next movie to watch!
+          <p className="text-2xl text-gray-300 mt-4 max-w-4xl mx-auto">
+            Explore the latest movies across various categories. Find your next movie to watch and dive into the world of entertainment!
           </p>
         </header>
 
-        {/* Movie Categories */}
+       
         {categories.map(({ key, label }) => (
           <div key={key} className="mb-16">
             <h2 className="text-4xl font-semibold text-white mb-6">{label}</h2>
             <MovieSection
               title={label}
-              movies={movies[key] || []}
+              movies={movies[key] || []} 
             />
           </div>
         ))}
